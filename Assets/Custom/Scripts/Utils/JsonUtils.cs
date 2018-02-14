@@ -34,6 +34,15 @@ namespace com.terranovita.botretreat
             }
             return defaultVal;
         }
+        public static TimeSpan getTimeSpanValue(this JSONObject json, string fieldName)
+        {
+            var fieldJson = json.GetField(fieldName);
+            if (fieldJson != null && fieldJson.IsString && fieldJson.str != null)
+            {
+                return TimeSpan.Parse(fieldJson.str);
+            }
+            return TimeSpan.Zero;
+        }
         public static TEnum getEnumValue<TEnum>(this JSONObject json, string fieldName, TEnum defaultVal = default(TEnum)) where TEnum : struct
         {
             var fieldJson = json.GetField(fieldName);

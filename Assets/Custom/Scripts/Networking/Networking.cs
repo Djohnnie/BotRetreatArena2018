@@ -110,5 +110,11 @@ namespace com.terranovita.botretreat
             Networking.Instance.StartCoroutine(msg.send());
         }
 
+        public void refreshMessages(string arenaName, Action<JSONObject> successCallback, Action<JSONObject> errorCallback)
+        {
+            var msg = new WWWMessage(this, "messages/" + arenaName.Replace(" ", "+"), successCallback, errorCallback);
+            Networking.Instance.StartCoroutine(msg.send());
+        }
+
     }
 }

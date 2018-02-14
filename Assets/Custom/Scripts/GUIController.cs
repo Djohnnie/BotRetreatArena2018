@@ -14,6 +14,7 @@ namespace com.terranovita.botretreat
         public Dropdown arenaDropdown;
         public Dropdown creatureDropdown;
         public Text topTeamsText;
+        public Text messagesText;
         public SmoothFollow smoothFollow;
 
 
@@ -32,6 +33,7 @@ namespace com.terranovita.botretreat
             InvokeRepeating("refreshArenas", 2, 10);
             InvokeRepeating("refreshCreatures", 2, 1);
             InvokeRepeating("refreshTopTeams", 2, 10);
+            InvokeRepeating("refreshMessages", 2, 1);
         }
         public void creatureSelected()
         {
@@ -66,6 +68,15 @@ namespace com.terranovita.botretreat
             {
                 var arenaName = arenaDropdown.options[arenaDropdown.value].text;
                 Networking.Instance.refreshTopTeams(arenaName, refreshTopTeamsSuccessCallback, refreshTopTeamsErrorCallback);
+            }
+        }
+
+        void refreshMessages()
+        {
+            if (arenaDropdown.value != null)
+            {
+                var arenaName = arenaDropdown.options[arenaDropdown.value].text;
+                Networking.Instance.refreshMessages(arenaName, refreshMessagesSuccessCallback, refreshMessagesErrorCallback);
             }
         }
 
@@ -128,7 +139,7 @@ namespace com.terranovita.botretreat
             {
                 var topTeams = json.GetValues<TopTeam>();
                 var topTeamsBuilder = new StringBuilder();
-                topTeams.ForEach(x => topTeamsBuilder.Append(x.TeamName + " (" + x.NumberOfKills.ToString() + " kills, " + x.AverageBotLife + " abl)" + Environment.NewLine));
+                topTeams.ForEach(x => topTeamsBuilder.Append(x.TeamName + " (" + x.NumberOfKills.ToString() + " kills, " + String.Format("{0}h{1}m{2}s", x.AverageBotLife.Hours, x.AverageBotLife.Minutes, x.AverageBotLife.Seconds) + " abl)" + Environment.NewLine));
                 topTeamsText.text = topTeamsBuilder.ToString();
             }
         }
@@ -136,6 +147,22 @@ namespace com.terranovita.botretreat
         private void refreshTopTeamsErrorCallback(JSONObject json)
         {
             topTeamsText.text = String.Empty;
+        }
+
+        private void refreshMessagesSuccessCallback(JSONObject json)
+        {
+            if (json.IsArray)
+            {
+                var messages = json.GetValues<Message>();
+                var messagesBuilder = new StringBuilder();
+                messages.ForEach(x => messagesBuilder.Append("[" + x.BotName + "] " + x.Content + Environment.NewLine));
+                messagesText.text = messagesBuilder.ToString();
+            }
+        }
+
+        private void refreshMessagesErrorCallback(JSONObject json)
+        {
+            messagesText.text = String.Empty;
         }
 
         private void errorCallback(JSONObject json)
