@@ -1,0 +1,44 @@
+Initialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics 630 (ID=0x591b)
+    Vendor:   Intel
+    VRAM:     4122 MB
+    Driver:   22.20.16.4799
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.016 seconds
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\_BOTRETREAT_\Unity\b\botretreat2017_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.778954 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 30fc -> priority: 1 
+  Thread -> id: 3f08 -> priority: 1 
+  Thread -> id: 43b0 -> priority: 1 
+  Thread -> id: 3cd8 -> priority: 1 
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[UnityEngine.UI.Dropdown+OptionData].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at com.terranovita.botretreat.GUIController.refreshTopTeams () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
